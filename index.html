@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Assessment & Reports</title>
+    <meta name="description" content="Access personalized mental health assessments and reports to empower your self-awareness and well-being.">
+    <meta name="keywords" content="Mental Health, Assessment, Reports, Self-awareness, Well-being">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,6 +63,18 @@
         input[type="submit"]:hover {
             background-color: #005bb5;
         }
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
@@ -83,39 +97,70 @@
             <h2>Access Your Report</h2>
             <form onsubmit="redirectToReport(event)">
                 <label for="profileCode">Enter your Profile Code:</label>
-                <input type="text" id="profileCode" name="profileCode" required>
+                <input type="text" id="profileCode" name="profileCode" aria-label="Enter your Profile Code" required aria-describedby="codeHelp">
+                <div id="codeHelp" style="font-size: smaller; color: gray;">Format: PC12345</div>
                 <input type="submit" value="View Report">
+                <div id="message"></div>
             </form>
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2024 Mental Health Assessment & Reports. All rights reserved.</p>
+        <p><a href="mailto:assessmentandprofiling@outlook.com" style="color: white;">Contact Us</a> | <a href="#privacy-policy" style="color: white;">Privacy Policy</a></p>
+        <p style="margin-top: 20px;">
+            This section is used for virtual communication. Please use the 
+            <a href="mailto:assessmentandprofiling@outlook.com" style="color: white; text-decoration: underline;">"Contact Us"</a> 
+            button to send an email. 
+            <a href="https://doxy.me/drclnt" target="_blank" style="color: white; text-decoration: underline;">Virtual Communication Dashboard</a>
+        </p>
+    </footer>
+
     <script>
+        document.getElementById("profileCode").addEventListener("input", function() {
+            var profileCode = this.value.trim();
+            var messageDiv = document.getElementById("message");
+
+            // Simple validation for Profile Code format
+            if (!/PC\d{5}/.test(profileCode)) {
+                messageDiv.textContent = "Profile Code should be in the format 'PC' followed by 5 digits.";
+                messageDiv.style.color = "orange";
+            } else {
+                messageDiv.textContent = "";
+            }
+        });
+
         function redirectToReport(event) {
             event.preventDefault();
             var profileCode = document.getElementById("profileCode").value.trim();
+            var messageDiv = document.getElementById("message");
 
-            // Redirection logic based on Profile Code
-            switch(profileCode) {
-                case "PC12593":
-                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8";
-                    break;
-                case "PC14638":
-                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ";
-                    break;
-                case "PC18394":
-                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8";
-                    break;
-                case "PC18472":
-                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ";
-                    break;
-                case "PC19364":
-                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggilQyPnzHgAnt6dg?e=w82gS9";
-                    break;
-                // Add more cases for additional profile codes as needed
-                default:
-                    alert("Profile Code not recognized. Please try again.");
-                    break;
-            }
+            messageDiv.textContent = "Loading your report, please wait...";
+            messageDiv.style.color = "blue";
+
+            setTimeout(function() {
+                switch(profileCode) {
+                    case "PC12593":
+                        window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8";
+                        break;
+                    case "PC14638":
+                        window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ";
+                        break;
+                    case "PC18394":
+                        window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8";
+                        break;
+                    case "PC18472":
+                        window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ";
+                        break;
+                    case "PC19364":
+                        window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggilQyPnzHgAnt6dg?e=w82gS9";
+                        break;
+                    default:
+                        messageDiv.textContent = "Profile Code not recognized. Please try again.";
+                        messageDiv.style.color = "red";
+                        break;
+                }
+            }, 1000); // simulate loading delay
         }
     </script>
 </body>
