@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment & Reports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .welcome, .mission {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #0073e6;
+        }
+        .profile-code-section {
+            margin-top: 30px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 2px solid #0073e6;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mental Health Assessment & Reports</h1>
+    </header>
+    <main>
+        <section class="welcome">
+            <h2>Welcome</h2>
+            <p>Welcome to the Mental Health Assessment & Reports portal, your trusted resource for understanding and navigating your mental health journey. Our mission is to provide you with personalized insights and assessments that empower you to achieve greater self-awareness and well-being. We are here to support you every step of the way as you explore and embrace the strengths and challenges that define your unique mental health landscape.</p>
+        </section>
+
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>Our mission is to empower individuals facing mental health challenges by helping them gain a deeper understanding of themselves. We believe that self-awareness is the first step towards healing and growth. By offering detailed and personalized assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+        </section>
+
+        <section class="profile-code-section">
+            <h2>Access Your Report</h2>
+            <form onsubmit="redirectToReport(event)">
+                <label for="profileCode">Enter your Profile Code:</label>
+                <input type="text" id="profileCode" name="profileCode" required>
+                <input type="submit" value="View Report">
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function redirectToReport(event) {
+            event.preventDefault();
+            var profileCode = document.getElementById("profileCode").value.trim();
+
+            // Redirection logic based on Profile Code
+            switch(profileCode) {
+                case "PC12593":
+                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8";
+                    break;
+                case "PC14638":
+                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ";
+                    break;
+                case "PC18394":
+                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8";
+                    break;
+                case "PC18472":
+                    window.location.href = "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ";
+                    break;
+                // Add more cases for additional profile codes as needed
+                default:
+                    alert("Profile Code not recognized. Please try again.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
