@@ -296,11 +296,11 @@
         <div class="section content-grid">
             <div class="column">
                 <h2>Welcome</h2>
-                <p>Welcome to the Precision Care for a Balanced Mind portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step as you embrace your strengths and challenges.</p>
+                <p>Welcome to the Precision Care for a Balanced Mind portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
             </div>
             <div class="column">
                 <h2>Our Mission</h2>
-                <p>The mission is to empower individuals facing mental health challenges by helping them better understand themselves. We believe that self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+                <p>The mission is to empower individuals facing mental health challenges by helping them gain a deeper understanding of themselves. We believe that self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
             </div>
         </div>
 
@@ -314,7 +314,7 @@
                 </div>
                 <div class="statistic">
                     <h3>450 million</h3>
-                    <p>People currently suffer from such conditions, making mental disorders among the leading causes of ill health and disability worldwide.</p>
+                    <p>People currently suffer from such conditions, making mental disorders among the leading causes of ill-health and disability worldwide.</p>
                 </div>
                 <div class="statistic">
                     <h3>75%</h3>
@@ -341,14 +341,14 @@
                 </div>
                 <div class="statistic">
                     <h3>1 in 5</h3>
-                    <p>Filipinos suffer from mental health problems, indicating a significant need for mental health services in the country.</p>
+                    <p>Filipinos suffer from a mental health problem, indicating a significant need for mental health services in the country.</p>
                 </div>
                 <div class="statistic">
                     <h3>2nd leading</h3>
                     <p>Cause of death among Filipinos aged 15-29 is suicide, highlighting the urgent need for mental health interventions.</p>
                 </div>
                 <div class="statistic">
-                    <h3>1 mental health specialist</h3>
+                    <h3>1 psychiatrist</h3>
                     <p>Per 250,000 Filipinos, showing the severe lack of mental health professionals in the country.</p>
                 </div>
                 <div class="statistic">
@@ -576,8 +576,9 @@
             const usTime = `Pacific Time Zone: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' })}`;
             const phTime = `Philippine Standard Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Manila' })}`;
             const auTime = `Australian Eastern Standard Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Australia/Sydney' })}`;
+            const weTime = `Western European Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Europe/Lisbon' })}`;
 
-            document.getElementById('time-clocks').textContent = `${usTime} | ${phTime} | ${auTime}`;
+            document.getElementById('time-clocks').textContent = `${usTime} | ${phTime} | ${auTime} | ${weTime}`;
         }
 
         setInterval(updateTimeClocks, 1000);
