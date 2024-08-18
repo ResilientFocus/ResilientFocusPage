@@ -109,6 +109,16 @@
             background-color: #f9fafb;
         }
 
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+            outline: none;
+        }
+
         .form-group input[type="submit"] {
             background-color: #3b82f6;
             color: white;
@@ -145,6 +155,15 @@
             color: #6b7280;
             text-align: center;
             margin-top: 5px;
+        }
+
+        /* Loading Spinner */
+        #loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #3b82f6;
         }
 
         /* Footer Styles */
@@ -197,6 +216,7 @@
                     <div class="help-text">Format: PC12345</div>
                 </div>
                 <div id="message" role="alert" aria-live="polite"></div>
+                <div id="loading">Loading your report, please wait...</div>
                 <div class="form-group">
                     <input type="submit" value="View Report">
                 </div>
@@ -212,19 +232,19 @@
             <form id="assessmentForm" action="https://formspree.io/f/xnnazkbr" method="POST">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    <input type="text" id="name" name="name" required placeholder="Enter your name" aria-label="Full Name" autocomplete="name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address" aria-label="Email Address" autocomplete="email">
                 </div>
                 <div class="form-group">
                     <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" required placeholder="Enter your age" min="16">
+                    <input type="number" id="age" name="age" required placeholder="Enter your age" min="16" aria-label="Age">
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender:</label>
-                    <select id="gender" name="gender" required>
+                    <select id="gender" name="gender" required aria-label="Gender">
                         <option value="">Select your gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -234,9 +254,9 @@
                 </div>
                 <div class="form-group">
                     <label for="reason">Why do you need an assessment?</label>
-                    <textarea id="reason" name="reason" required placeholder="Briefly describe your reason for seeking an assessment"></textarea>
+                    <textarea id="reason" name="reason" required placeholder="Briefly describe your reason for seeking an assessment" aria-label="Reason for Assessment"></textarea>
                 </div>
-                <div id="formMessage" role="alert"></div>
+                <div id="formMessage" role="alert" aria-live="polite"></div>
                 <div class="form-group">
                     <input type="submit" value="Submit">
                 </div>
@@ -321,6 +341,7 @@
 
             messageDiv.textContent = "Loading your report, please wait...";
             messageDiv.style.color = "blue";
+            document.getElementById("loading").style.display = "block"; // Show loading spinner
             successMessageDiv.style.display = "none";  // Hide success message initially
 
             setTimeout(function() {
@@ -361,6 +382,20 @@
         document.getElementById("assessmentForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent default form submission behavior
 
+            const emailField = document.getElementById("email");
+            const ageField = document.getElementById("age");
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(emailField.value)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (ageField.value < 16) {
+                alert("Age must be at least 16 years old.");
+                return;
+            }
+
             fetch(this.action, {
                 method: this.method,
                 body: new FormData(this),
@@ -371,7 +406,7 @@
                     document.getElementById("formMessage").style.color = "green";
                     this.reset(); // Reset the form fields
                 } else {
-                    document.getElementById("formMessage").textContent = "Oops! Something went wrong. Please try again.";
+                    document.getElementById("formMessage").textContent = "Oops! Something went wrong. Please try again later or contact support.";
                     document.getElementById("formMessage").style.color = "red";
                 }
             });
