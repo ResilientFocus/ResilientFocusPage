@@ -243,37 +243,54 @@
             <a href="#privacy-policy">Privacy Policy</a>
         </p>
         <p>
-            This section is used for virtual communication. Please use the Contact Us or Request an Assessment button</a> 
-            link to send an email to access the 
+            This section is used for virtual communication. Please use the Contact Us or Request an Assessment button link to send an email to access the 
             <a href="https://doxy.me/drclnt" target="_blank" style="text-decoration: underline;">Virtual Communication Dashboard</a>.
         </p>
     </footer>
 
     <script>
-        document.getElementById("contactUsLink").addEventListener("click", copyEmail);
-        document.getElementById("contactUsLinkFooter").addEventListener("click", copyEmail);
+        document.getElementById("contactUsLink").addEventListener("click", handleContactUs);
 
-        function copyEmail(event) {
+        function handleContactUs(event) {
             event.preventDefault();
             var email = "assessmentandprofiling@outlook.com";
 
-            // Create a temporary input element
-            var tempInput = document.createElement("input");
-            tempInput.value = email;
-            document.body.appendChild(tempInput);
-
-            // Select the text and copy it to the clipboard
-            tempInput.select();
-            document.execCommand("copy");
-
-            // Remove the temporary input element
-            document.body.removeChild(tempInput);
-
-            // Show alert message
-            alert("The email address has been copied to your clipboard. Please paste it into your email client.");
+            if (isMobileDevice()) {
+                // On mobile, open the email client
+                window.location.href = `mailto:${email}`;
+            } else {
+                // On desktop, copy the email to the clipboard
+                copyEmailToClipboard(email);
+            }
         }
 
-        // Existing JavaScript code...
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        function copyEmailToClipboard(email) {
+            // Create a temporary text area element for the clipboard operation
+            var tempTextArea = document.createElement("textarea");
+            tempTextArea.value = email;
+            document.body.appendChild(tempTextArea);
+
+            // Select the text and copy it to the clipboard
+            tempTextArea.select();
+            tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    alert("The email address has been copied to your clipboard. Please paste it into your email client.");
+                } else {
+                    alert("Failed to copy the email address. Please manually copy it.");
+                }
+            } catch (err) {
+                alert("Failed to copy the email address. Please manually copy it.");
+            }
+
+            // Remove the temporary text area element
+            document.body.removeChild(tempTextArea);
+        }
 
         document.getElementById("profileCode").addEventListener("input", function() {
             var profileCode = this.value.trim();
