@@ -239,18 +239,43 @@
     <footer>
         <p>&copy; 2024 Mental Health Assessments & Reports. All rights reserved.</p>
         <p>
-            <a href="mailto:assessmentandprofiling@outlook.com">Contact Us</a> | 
+            <a href="#" id="contactUsLink">Contact Us</a> | 
             <a href="#privacy-policy">Privacy Policy</a>
         </p>
         <p>
             This section is used for virtual communication. Please use the 
-            <a href="mailto:assessmentandprofiling@outlook.com" style="text-decoration: underline;">Contact Us</a> 
+            <a href="#" id="contactUsLinkFooter" style="text-decoration: underline;">Contact Us</a> 
             link to send an email to access the 
             <a href="https://doxy.me/drclnt" target="_blank" style="text-decoration: underline;">Virtual Communication Dashboard</a>.
         </p>
     </footer>
 
     <script>
+        document.getElementById("contactUsLink").addEventListener("click", copyEmail);
+        document.getElementById("contactUsLinkFooter").addEventListener("click", copyEmail);
+
+        function copyEmail(event) {
+            event.preventDefault();
+            var email = "assessmentandprofiling@outlook.com";
+
+            // Create a temporary input element
+            var tempInput = document.createElement("input");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+
+            // Select the text and copy it to the clipboard
+            tempInput.select();
+            document.execCommand("copy");
+
+            // Remove the temporary input element
+            document.body.removeChild(tempInput);
+
+            // Show alert message
+            alert("The email address has been copied to your clipboard. Please paste it into your email client.");
+        }
+
+        // Existing JavaScript code...
+
         document.getElementById("profileCode").addEventListener("input", function() {
             var profileCode = this.value.trim();
             var messageDiv = document.getElementById("message");
