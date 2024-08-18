@@ -18,6 +18,7 @@
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
+            position: relative;
         }
 
         header {
@@ -27,12 +28,66 @@
             width: 100%;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .services-button {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: #3b82f6;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .services-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #3b82f6;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1001;
+            right: 20px;
+            top: 70px;
+            width: 250px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #2563eb;
+        }
+
+        .services-button:focus + .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
         }
 
         main {
@@ -167,6 +222,15 @@
 <body>
     <header>
         <h1>Precision Care for a Balanced Mind</h1>
+        <button class="services-button" id="servicesButton">Services</button>
+        <div class="dropdown-content" id="dropdownContent">
+            <a href="#">Anxiety, Depression, and Stress Assessment</a>
+            <a href="#">Sleeping Assessment</a>
+            <a href="#">Profiling Assessment</a>
+            <a href="#">Mood Regulation Assessment</a>
+            <a href="#">Behavioural Assessment</a>
+            <a href="#">Complete Profiling</a>
+        </div>
     </header>
     <main>
         <!-- Welcome and Mission Section -->
@@ -226,7 +290,7 @@
                 </div>
                 <div class="form-group">
                     <label for="reason">Why do you need an assessment?</label>
-                    <textarea id="reason" name="reason" required placeholder="Briefly describe your reason for seeking an assessment"></textarea>
+                    <textarea id="reason" name="reason" required placeholder="Briefly describe your reason for seeking an assessment or choose from the services"></textarea>
                 </div>
                 <div id="formMessage" role="alert"></div>
                 <div class="form-group">
