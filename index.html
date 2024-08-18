@@ -7,141 +7,147 @@
     <meta name="description" content="Access personalised mental health assessments and reports to empower your self-awareness and well-being.">
     <meta name="keywords" content="Mental Health, Assessment, Reports, Self-awareness, Well-being">
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: linear-gradient(to bottom right, #e0f7fa, #a7ffeb);
-            height: 100vh;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
         header {
-            background-color: #0073e6;
+            background-color: #3b82f6;
             color: white;
             padding: 30px 20px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
 
         main {
-            max-width: 1000px;
+            max-width: 1200px;
             width: 100%;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 40px;
         }
 
-        .content-section {
-            width: 100%;
-            margin-bottom: 40px;
+        /* Section Styles */
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
         }
 
-        .content-section h2 {
-            font-size: 1.5rem;
-            color: #0073e6;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #0073e6;
+        .section h2 {
+            font-size: 1.8rem;
+            color: #3b82f6;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
             padding-bottom: 10px;
         }
 
-        .two-column {
+        /* Content Layout */
+        .content-grid {
             display: flex;
             gap: 20px;
-            width: 100%;
             flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         .column {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
         }
 
-        .welcome, .mission {
-            background-color: #e7f3fe;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .column p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        .profile-code-section {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .profile-code-section h2 {
-            text-align: center;
-            color: #0073e6;
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #374151;
         }
 
-        input[type="text"] {
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 12px;
-            margin: 20px 0;
-            box-sizing: border-box;
-            border: 2px solid #0073e6;
-            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
             font-size: 1rem;
+            background-color: #f9fafb;
         }
 
-        input[type="submit"] {
-            background-color: #0073e6;
+        .form-group input[type="submit"] {
+            background-color: #3b82f6;
             color: white;
-            padding: 12px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             text-transform: uppercase;
+            width: 100%;
+            transition: background-color 0.3s ease;
         }
 
-        input[type="submit"]:hover {
-            background-color: #005bb5;
+        .form-group input[type="submit"]:hover {
+            background-color: #2563eb;
         }
 
-        #message {
+        #message,
+        #formMessage,
+        #success-message {
             margin-top: 20px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         #success-message {
             display: none;
-            text-align: center;
-            margin-top: 20px;
             color: green;
-            font-size: 1rem;
         }
 
+        /* Footer Styles */
         footer {
-            background-color: #0073e6;
+            background-color: #3b82f6;
             color: white;
-            padding: 30px;
+            padding: 20px;
             width: 100%;
             text-align: center;
             margin-top: auto;
         }
 
         footer p {
-            margin: 10px 0;
+            margin: 5px 0;
             font-size: 0.9rem;
         }
 
@@ -156,30 +162,69 @@
         <h1>Mental Health Assessments & Reports</h1>
     </header>
     <main>
-        <div class="two-column">
-            <div class="column welcome content-section">
-                <h2>Welcome</h2>
-                <p>Welcome to the Mental Health Assessments & Reports portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
-                <p>If you need assistance, feel free to contact us</a>.</p>
-            </div>
-            <div class="column mission content-section">
-                <h2>Our Mission</h2>
-                <p>The mission is to empower individuals facing mental health challenges by helping them gain a deeper understanding of themselves. It is believed that self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, the goal is to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+        <!-- Welcome and Mission Section -->
+        <div class="section">
+            <div class="content-grid">
+                <div class="column">
+                    <h2>Welcome</h2>
+                    <p>Welcome to the Mental Health Assessments & Reports portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
+                </div>
+                <div class="column">
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to empower individuals facing mental health challenges by helping them gain a deeper understanding of themselves. We believe that self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+                </div>
             </div>
         </div>
 
-        <div class="profile-code-section">
+        <!-- Access Your Report Section -->
+        <div class="section">
             <h2>Access Your Report</h2>
-            <form onsubmit="redirectToReport(event)" novalidate>
-                <label for="profileCode">Enter your Profile Code:</label>
-                <input type="text" id="profileCode" name="profileCode" aria-label="Enter your Profile Code" required aria-describedby="codeHelp">
-                <div id="codeHelp" style="font-size: smaller; color: gray; text-align: center;">Format: PC12345</div>
-                <input type="submit" value="View Report">
-                <div id="message" role="alert"></div>
+            <form id="profileCodeForm" onsubmit="redirectToReport(event)" novalidate>
+                <div class="form-group">
+                    <label for="profileCode">Enter your Profile Code:</label>
+                    <input type="text" id="profileCode" name="profileCode" aria-label="Enter your Profile Code" required>
+                </div>
+                <div id="message" role="alert" aria-live="polite"></div>
+                <div class="form-group">
+                    <input type="submit" value="View Report">
+                </div>
+                <div id="success-message" aria-live="polite">
+                    The folder has been located. Redirecting you now...
+                </div>
             </form>
-            <div id="success-message">
-                The folder has been located. Redirecting you now...
-            </div>
+        </div>
+
+        <!-- Request an Assessment Section -->
+        <div class="section">
+            <h2>Request an Assessment</h2>
+            <form id="assessmentForm" action="https://formspree.io/f/xnnazkbr" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required placeholder="Enter your age" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Why do you need an assessment?</label>
+                    <textarea id="reason" name="reason" required placeholder="Briefly describe your reason for seeking an assessment"></textarea>
+                </div>
+                <div id="formMessage" role="alert"></div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
         </div>
     </main>
 
@@ -189,8 +234,9 @@
             <a href="mailto:assessmentandprofiling@outlook.com">Contact Us</a> | 
             <a href="#privacy-policy">Privacy Policy</a>
         </p>
-        <p style="margin-top: 20px;">
-            This section is used for virtual communication. Please use the Contact Us</a> 
+        <p>
+            This section is used for virtual communication. Please use the 
+            <a href="mailto:assessmentandprofiling@outlook.com" style="text-decoration: underline;">Contact Us</a> 
             link to send an email to access the 
             <a href="https://doxy.me/drclnt" target="_blank" style="text-decoration: underline;">Virtual Communication Dashboard</a>.
         </p>
@@ -253,6 +299,26 @@
             };
             return urls[profileCode];
         }
+
+        // Formspree submission handling
+        document.getElementById("assessmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById("formMessage").textContent = "Thank you! Your assessment request has been submitted.";
+                    document.getElementById("formMessage").style.color = "green";
+                    this.reset(); // Reset the form fields
+                } else {
+                    document.getElementById("formMessage").textContent = "Oops! Something went wrong. Please try again.";
+                    document.getElementById("formMessage").style.color = "red";
+                }
+            });
+        });
     </script>
 </body>
 </html>
