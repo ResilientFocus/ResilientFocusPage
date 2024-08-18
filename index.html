@@ -28,6 +28,7 @@
             width: 100%;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         header h1 {
@@ -35,6 +36,13 @@
             font-size: 2.5rem;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .time-clocks {
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
         }
 
         main {
@@ -252,6 +260,10 @@
                 font-size: 1.8rem;
             }
 
+            .time-clocks {
+                font-size: 0.7rem;
+            }
+
             .statistic h3 {
                 font-size: 1.5rem;
             }
@@ -277,17 +289,18 @@
 <body>
     <header>
         <h1>Precision Care for a Balanced Mind</h1>
+        <div class="time-clocks" id="time-clocks"></div>
     </header>
     <main>
         <!-- Welcome and Mission Section -->
         <div class="section content-grid">
             <div class="column">
                 <h2>Welcome</h2>
-                <p>Welcome to the Precision Care for a Balanced Mind portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
+                <p>Welcome to the Precision Care for a Balanced Mind portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step as you embrace your strengths and challenges.</p>
             </div>
             <div class="column">
                 <h2>Our Mission</h2>
-                <p>The mission is to empower individuals facing mental health challenges by helping them gain a deeper understanding of themselves. We believe that self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+                <p>The mission is to empower individuals facing mental health challenges by helping them better understand themselves. We believe that self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
             </div>
         </div>
 
@@ -301,7 +314,7 @@
                 </div>
                 <div class="statistic">
                     <h3>450 million</h3>
-                    <p>People currently suffer from such conditions, making mental disorders among the leading causes of ill-health and disability worldwide.</p>
+                    <p>People currently suffer from such conditions, making mental disorders among the leading causes of ill health and disability worldwide.</p>
                 </div>
                 <div class="statistic">
                     <h3>75%</h3>
@@ -328,14 +341,14 @@
                 </div>
                 <div class="statistic">
                     <h3>1 in 5</h3>
-                    <p>Filipinos suffer from a mental health problem, indicating a significant need for mental health services in the country.</p>
+                    <p>Filipinos suffer from mental health problems, indicating a significant need for mental health services in the country.</p>
                 </div>
                 <div class="statistic">
                     <h3>2nd leading</h3>
                     <p>Cause of death among Filipinos aged 15-29 is suicide, highlighting the urgent need for mental health interventions.</p>
                 </div>
                 <div class="statistic">
-                    <h3>1 psychiatrist</h3>
+                    <h3>1 mental health specialist</h3>
                     <p>Per 250,000 Filipinos, showing the severe lack of mental health professionals in the country.</p>
                 </div>
                 <div class="statistic">
@@ -365,6 +378,10 @@
                         The folder has been located. Redirecting you now...
                     </div>
                 </form>
+                <p>This section is used for virtual communication. Please use the Contact Us or Request an Assessment button link to send an email to access the Virtual Communication Dashboard</a>.</p>
+                <div class="form-group">
+                    <button onclick="window.location.href='https://doxy.me/drclnt'" style="background-color: #3b82f6; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; width: 100%; transition: background-color 0.3s ease;">Virtual Communication Dashboard</button>
+                </div>
             </div>
 
             <!-- Request an Assessment Section -->
@@ -411,10 +428,6 @@
         <p>
             <a href="#" id="contactUsLink">Contact Us</a> | 
             <a href="#privacy-policy">Privacy Policy</a>
-        </p>
-        <p>
-            This section is used for virtual communication. Please use the Contact Us or Request an Assessment button link to send an email to access the 
-            <a href="https://doxy.me/drclnt" target="_blank" style="text-decoration: underline;">Virtual Communication Dashboard</a>.
         </p>
     </footer>
 
@@ -554,6 +567,21 @@
                 }
             });
         });
+
+        // Time Clock Script
+        function updateTimeClocks() {
+            const now = new Date();
+
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const usTime = `Pacific Time Zone: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' })}`;
+            const phTime = `Philippine Standard Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Manila' })}`;
+            const auTime = `Australian Eastern Standard Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Australia/Sydney' })}`;
+
+            document.getElementById('time-clocks').textContent = `${usTime} | ${phTime} | ${auTime}`;
+        }
+
+        setInterval(updateTimeClocks, 1000);
+        updateTimeClocks(); // initial call
     </script>
 </body>
 </html>
