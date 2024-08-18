@@ -338,10 +338,10 @@
             var profileCode = document.getElementById("profileCode").value.trim();
             var messageDiv = document.getElementById("message");
             var successMessageDiv = document.getElementById("success-message");
+            var loadingDiv = document.getElementById("loading");
 
-            messageDiv.textContent = "Loading your report, please wait...";
-            messageDiv.style.color = "blue";
-            document.getElementById("loading").style.display = "block"; // Show loading spinner
+            messageDiv.textContent = "";
+            loadingDiv.style.display = "block"; // Show loading spinner
             successMessageDiv.style.display = "none";  // Hide success message initially
 
             setTimeout(function() {
@@ -353,7 +353,7 @@
                     case "PC19364":
                     case "PC00023":
                         successMessageDiv.style.display = "block";  // Show success message
-                        messageDiv.textContent = "";  // Clear the loading message
+                        loadingDiv.style.display = "none"; // Hide loading spinner
                         setTimeout(function() {
                             window.location.href = getRedirectUrl(profileCode);
                         }, 2000);  // Delay to show the success message before redirecting
@@ -361,6 +361,7 @@
                     default:
                         messageDiv.textContent = "Profile Code not recognised. Please try again.";
                         messageDiv.style.color = "red";
+                        loadingDiv.style.display = "none"; // Hide loading spinner
                         break;
                 }
             }, 1000); // Simulate loading delay
