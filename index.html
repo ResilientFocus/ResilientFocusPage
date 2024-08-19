@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESILIENCE</title>
+    <title>Resilience</title>
     <meta name="description" content="Resilience to empower your self-awareness and well-being.">
     <meta name="keywords" content="Mental Health, Resilience, Assessment, Reports, Self-awareness, Well-being">
     <style>
         /* General Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f9f9fb;
             margin: 0;
             padding: 0;
             display: flex;
@@ -20,10 +20,11 @@
             min-height: 100vh;
             box-sizing: border-box;
             position: relative;
+            color: #333;
         }
 
         header {
-            background-color: #3b82f6;
+            background-color: #ff7043;
             color: white;
             padding: 20px;
             width: 100%;
@@ -33,16 +34,42 @@
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
-        .time-clocks {
-            font-size: 0.9rem;
+        .slogan {
+            font-size: 1.5rem;
+            color: white;
             margin-top: 10px;
-            font-weight: normal;
-            color: #f0f4f8;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ff7043;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
         }
 
         main {
@@ -63,11 +90,11 @@
         }
 
         .section h2 {
-            font-size: 1.8rem;
-            color: #3b82f6;
+            font-size: 2rem;
+            color: #ff7043;
             margin-bottom: 20px;
             text-align: center;
-            border-bottom: 2px solid #3b82f6;
+            border-bottom: 3px solid #ff7043;
             padding-bottom: 10px;
         }
 
@@ -86,6 +113,7 @@
         .column p {
             font-size: 1.1rem;
             line-height: 1.6;
+            color: #555;
             margin: 0;
         }
 
@@ -102,20 +130,15 @@
             text-align: center;
             padding: 20px;
             border-radius: 8px;
-            background-color: #f9fafb;
+            background-color: #ffd54f;
+            color: #333;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .statistic h3 {
             font-size: 2rem;
-            color: #3b82f6;
+            color: #d84315;
             margin-bottom: 10px;
-        }
-
-        .statistic p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #374151;
         }
 
         .form-grid {
@@ -133,7 +156,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #374151;
+            color: #555;
         }
 
         .form-group input[type="text"],
@@ -143,10 +166,10 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1rem;
-            background-color: #f9fafb;
+            background-color: #fff8e1;
         }
 
         .form-group input[type="text"]:focus,
@@ -154,13 +177,13 @@
         .form-group input[type="number"]:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+            border-color: #ff7043;
+            box-shadow: 0 0 5px rgba(255, 112, 67, 0.5);
             outline: none;
         }
 
         .form-group input[type="submit"] {
-            background-color: #3b82f6;
+            background-color: #ff7043;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -174,13 +197,13 @@
         }
 
         .form-group input[type="submit"]:hover {
-            background-color: #2563eb;
+            background-color: #d84315;
         }
 
         .fee-note {
             display: block;
-            font-size: 0.7rem;
-            color: #6b7280;
+            font-size: 0.8rem;
+            color: #777;
             text-align: center;
             margin-top: 5px;
             line-height: 1.2;
@@ -204,11 +227,11 @@
             text-align: center;
             margin-top: 20px;
             font-size: 1.2rem;
-            color: #3b82f6;
+            color: #ff7043;
         }
 
         footer {
-            background-color: #3b82f6;
+            background-color: #ff7043;
             color: white;
             padding: 20px;
             width: 100%;
@@ -239,16 +262,16 @@
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 300px;
-            background-color: #f9fafb;
-            color: #3b82f6;
+            background-color: #ffd54f;
+            color: #333;
             text-align: center;
             border-radius: 8px;
             padding: 10px;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position above the text */
+            bottom: 125%;
             left: 50%;
-            margin-left: -150px; /* Centers the tooltip */
+            margin-left: -150px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.3s;
@@ -259,13 +282,29 @@
             opacity: 1;
         }
 
+        /* Back to Top Button */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff7043;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #backToTopBtn:hover {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-            }
-
-            .time-clocks {
-                font-size: 0.8rem;
             }
 
             main {
@@ -298,18 +337,6 @@
                 font-size: 1.6rem;
             }
 
-            .time-clocks {
-                font-size: 0.7rem;
-            }
-
-            .statistic h3 {
-                font-size: 1.5rem;
-            }
-
-            .statistic p {
-                font-size: 1rem;
-            }
-
             .section h2 {
                 font-size: 1.4rem;
             }
@@ -327,13 +354,24 @@
 
 <body>
     <header>
-        <h1>RESELIENCE</h1>
-        <div class="time-clocks" id="time-clocks"></div>
+        <h1>Resilience</h1>
+        <div class="slogan">Strength in Every Struggle, Power in Every Comeback.</div>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#assessment">Assessment</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
 
     <main>
         <!-- Welcome and Mission Section -->
-        <div class="section content-grid">
+        <div class="section content-grid" id="welcome">
             <div class="column">
                 <h2>Welcome</h2>
                 <p>Welcome to the Resilience portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
@@ -345,7 +383,7 @@
         </div>
 
         <!-- World Mental Health Statistics Section -->
-        <div class="section">
+        <div class="section" id="statistics">
             <h2>World Mental Health Statistics (2024)</h2>
             <div class="statistics">
                 <div class="statistic">
@@ -399,7 +437,7 @@
         </div>
 
         <!-- Access Your Report and Request an Assessment Sections -->
-        <div class="section form-grid">
+        <div class="section form-grid" id="assessment">
             <!-- Access Your Report Section -->
             <div class="column">
                 <h2>Access Your Report</h2>
@@ -418,9 +456,9 @@
                         The folder has been located. Redirecting you now...
                     </div>
                 </form>
-                <p>This section is used for virtual communication. Please use the Contact Us or Request an Assessment button link to send an email to access the Virtual Communication Dashboard.</p>
+                <p>This section is used for virtual communication. Please use the Contact Us at the bottom of this page or Request an Assessment button link to send an email to access the Virtual Communication Dashboard.</p>
                 <div class="form-group">
-                    <button onclick="window.location.href='https://doxy.me/drclnt'" style="background-color: #3b82f6; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; width: 100%; transition: background-color 0.3s ease;">Virtual Communication Dashboard</button>
+                    <button onclick="window.location.href='https://doxy.me/drclnt'" style="background-color: #ff7043; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; width: 100%; transition: background-color 0.3s ease;">Virtual Communication Dashboard</button>
                 </div>
             </div>
 
@@ -462,9 +500,85 @@
                 </form>
             </div>
         </div>
+
+        <!-- FAQ Section -->
+        <div class="section" id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="content-grid">
+                <div class="column">
+                    <h3>What is Resilience?</h3>
+                    <p>Resilience is a platform dedicated to providing personalised mental health assessments to help you better understand and manage your mental health.</p>
+                </div>
+                <div class="column">
+                    <h3>How does the assessment process work?</h3>
+                    <p>You can request an assessment through our online form. Our team will review your request and guide you through the process, either through a virtual meeting or a paper-based assessment.</p>
+                </div>
+                <div class="column">
+                    <h3>Is my information secure?</h3>
+                    <p>Yes, your privacy is our top priority. All your data is kept confidential and is not shared with third parties without your consent.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div class="section" id="blog">
+            <h2>Latest Articles</h2>
+            <div class="content-grid">
+                <div class="column">
+                    <h3>5 Ways to Build Resilience</h3>
+                    <p>Discover practical tips to strengthen your mental resilience and improve your well-being.</p>
+                    <a href="#resilience-article">Read more</a>
+                </div>
+                <div class="column">
+                    <h3>The Importance of Mental Health Assessments</h3>
+                    <p>Learn why regular mental health assessments are crucial for maintaining your overall health.</p>
+                    <a href="#assessment-article">Read more</a>
+                </div>
+                <div class="column">
+                    <h3>Understanding Anxiety: Symptoms and Solutions</h3>
+                    <p>Get insights into the causes of anxiety and effective ways to manage it.</p>
+                    <a href="#anxiety-article">Read more</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Articles -->
+        <div class="section" id="resilience-article">
+            <h2>5 Ways to Build Resilience</h2>
+            <p><strong>Introduction:</strong> Resilience is the ability to bounce back from challenges and adapt to adversity. It's an essential trait for maintaining mental well-being, especially in today's fast-paced world. Here are five practical tips to help you build resilience and improve your mental health.</p>
+            <p><strong>1. Develop a Strong Support System:</strong> Surround yourself with positive, supportive people who can provide encouragement and advice. Building strong relationships with friends, family, or community groups gives you a network to rely on during tough times.</p>
+            <p><strong>2. Focus on What You Can Control:</strong> It’s easy to get overwhelmed by situations that are beyond your control. Instead, focus on the aspects of your life that you can influence. This shift in perspective can help you feel more empowered and less stressed.</p>
+            <p><strong>3. Practice Mindfulness:</strong> Mindfulness involves staying present and fully engaging in the current moment. By practicing mindfulness, you can reduce stress, increase self-awareness, and enhance your ability to cope with difficult situations.</p>
+            <p><strong>4. Maintain a Healthy Lifestyle:</strong> A healthy body supports a resilient mind. Regular exercise, a balanced diet, and sufficient sleep all contribute to better mental health and increased resilience. Make time for activities that nourish both your body and mind.</p>
+            <p><strong>5. Set Realistic Goals:</strong> Having clear, achievable goals gives you a sense of purpose and direction. Start small and gradually work towards larger objectives. This approach helps build confidence and keeps you motivated through challenging times.</p>
+            <p><strong>Conclusion:</strong> Building resilience takes time and practice, but it’s a vital skill for overcoming challenges and maintaining mental well-being. By implementing these tips, you can strengthen your resilience and navigate life’s difficulties with greater ease.</p>
+        </div>
+
+        <div class="section" id="assessment-article">
+            <h2>The Importance of Mental Health Assessments</h2>
+            <p><strong>Introduction:</strong> Mental health assessments are a critical tool in understanding and managing your mental well-being. Regular assessments can provide valuable insights into your mental state, helping you to take proactive steps in maintaining your health.</p>
+            <p><strong>1. Early Detection of Mental Health Issues:</strong> One of the main benefits of regular mental health assessments is early detection. Identifying potential issues early on allows for timely intervention, which can prevent conditions from worsening and improve outcomes.</p>
+            <p><strong>2. Personalised Care:</strong> Mental health assessments provide a personalised view of your mental state, considering your unique experiences, symptoms, and circumstances. This tailored approach ensures that you receive care and treatment that is specifically suited to your needs.</p>
+            <p><strong>3. Monitoring Progress:</strong> For individuals already receiving treatment or therapy, regular assessments are essential for monitoring progress. They help track improvements, identify any setbacks, and adjust treatment plans as necessary to ensure the best possible outcomes.</p>
+            <p><strong>4. Reducing Stigma:</strong> Engaging in regular mental health assessments can help normalise the conversation around mental health, reducing stigma and encouraging more people to seek help. It reinforces the idea that mental health is just as important as physical health.</p>
+            <p><strong>5. Empowering Self-Awareness:</strong> Assessments empower individuals with a deeper understanding of their mental health. This self-awareness is crucial for recognising when you might need extra support and taking steps to maintain your mental well-being.</p>
+            <p><strong>Conclusion:</strong> Mental health assessments are a proactive way to take charge of your mental well-being. Whether you're dealing with a mental health issue or simply want to maintain your mental fitness, regular assessments can provide the insights you need to stay healthy.</p>
+        </div>
+
+        <div class="section" id="anxiety-article">
+            <h2>Understanding Anxiety: Symptoms and Solutions</h2>
+            <p><strong>Introduction:</strong> Anxiety is a common mental health issue that affects millions of people worldwide. Understanding its symptoms and solutions can help you manage anxiety effectively and improve your overall quality of life.</p>
+            <p><strong>1. Recognising the Symptoms of Anxiety:</strong> Anxiety can manifest in various ways, both physically and mentally. Common symptoms include excessive worrying, restlessness, fatigue, difficulty concentrating, and physical symptoms like headaches or an upset stomach. Understanding these signs is the first step in addressing anxiety.</p>
+            <p><strong>2. Identifying Triggers:</strong> Anxiety is often triggered by specific situations, events, or thoughts. Identifying your triggers can help you anticipate and manage anxiety before it escalates. Keep a journal of when you feel anxious and note any patterns that emerge.</p>
+            <p><strong>3. Cognitive Behavioural Therapy (CBT):</strong> CBT is a widely recognized therapy for treating anxiety. It involves identifying and challenging negative thought patterns that contribute to anxiety. Through CBT, you can learn to reframe your thoughts and develop healthier coping mechanisms.</p>
+            <p><strong>4. Lifestyle Changes to Reduce Anxiety:</strong> Lifestyle changes can have a significant impact on managing anxiety. Regular exercise, a healthy diet, sufficient sleep, and reducing caffeine and alcohol intake are all effective strategies. Mindfulness and relaxation techniques, such as deep breathing or meditation, can also help calm the mind.</p>
+            <p><strong>5. Seeking Professional Help:</strong> If anxiety is interfering with your daily life, seeking professional help is essential. A mental health professional can provide you with tools and strategies tailored to your specific needs, whether through therapy, medication, or a combination of both.</p>
+            <p><strong>Conclusion:</strong> Understanding and managing anxiety is crucial for maintaining your mental health. By recognising the symptoms, identifying triggers, and implementing effective strategies, you can take control of your anxiety and lead a more balanced, fulfilling life.</p>
+        </div>
+
     </main>
 
-    <footer>
+    <footer id="contact">
         <p>&copy; 2024 Resilience. All rights reserved.</p>
         <p>
             <a href="#" id="contactUsLink">Contact Us</a> |
@@ -473,6 +587,8 @@
             </span>
         </p>
     </footer>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">↑</button>
 
     <script>
         document.getElementById("contactUsLink").addEventListener("click", handleContactUs);
@@ -570,20 +686,20 @@
             return urls[profileCode];
         }
 
-        function updateTimeClocks() {
-            const now = new Date();
+        /* Back to Top Button */
+        window.onscroll = function () {
+            const backToTopBtn = document.getElementById("backToTopBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
 
-            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            const usTime = `Pacific Time Zone: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' })}`;
-            const phTime = `Philippine Standard Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Manila' })}`;
-            const auTime = `Australian Eastern Standard Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Australia/Sydney' })}`;
-            const weTime = `Western European Time: ${now.toLocaleTimeString('en-US', { ...options, timeZone: 'Europe/Lisbon' })}`;
-
-            document.getElementById('time-clocks').textContent = `${usTime} | ${phTime} | ${auTime} | ${weTime}`;
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
-
-        setInterval(updateTimeClocks, 1000);
-        updateTimeClocks();
     </script>
 </body>
 
