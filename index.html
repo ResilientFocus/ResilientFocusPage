@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resilience</title>
+    <title>Resilient Focus</title>
     <meta name="description" content="Resilience to empower your self-awareness and well-being.">
     <meta name="keywords" content="Mental Health, Resilience, Assessment, Reports, Self-awareness, Well-being">
     <style>
@@ -47,10 +47,11 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 10px 20px;
             background-color: #ff7043;
+            width: 100%;
         }
 
         nav ul {
@@ -349,6 +350,48 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* Quiz Result Styles */
+        #result {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffecb3;
+            border-radius: 8px;
+        }
+
+        #submitQuiz {
+            background-color: #ff7043;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #submitQuiz:hover {
+            background-color: #d84315;
+        }
+
+        .score-description {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -365,6 +408,7 @@
             <li><a href="#assessment">Assessment</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#blog">Blog</a></li>
+            <li><a href="#quiz">Quiz</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
@@ -374,11 +418,11 @@
         <div class="section content-grid" id="welcome">
             <div class="column">
                 <h2>Welcome</h2>
-                <p>Welcome to the Resilient Focus portal, your trusted resource for understanding and navigating your mental health journey. Personalised insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
+                <p>Welcome to the Resilient Focus portal, your trusted resource for understanding and navigating your mental health journey. Personalized insights and assessments are provided to empower your self-awareness and well-being. Assessments can be conducted through paper-based or virtual meetings. Support is available every step of the way as you embrace your strengths and challenges.</p>
             </div>
             <div class="column">
                 <h2>Our Mission</h2>
-                <p>The mission is to empower individuals facing mental health challenges by helping them better understand themselves. Self-awareness is the first step towards healing and growth. By offering detailed and personalised assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+                <p>The mission is to empower individuals facing mental health challenges by helping them better understand themselves. Self-awareness is the first step towards healing and growth. By offering detailed and personalized assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
             </div>
         </div>
 
@@ -436,7 +480,7 @@
             </div>
         </div>
 
-        <!-- Access Your Report and Request an Assessment Sections -->
+        <!-- Access Your Report and Request an Assessment Section -->
         <div class="section form-grid" id="assessment">
             <!-- Access Your Report Section -->
             <div class="column">
@@ -501,13 +545,247 @@
             </div>
         </div>
 
+        <!-- Quiz Section -->
+        <div class="section" id="quiz">
+            <h2>Mental Health Assessment Quiz</h2>
+            <div class="quiz-container">
+                <form id="mentalHealthQuiz">
+                    <!-- Questions -->
+                    <div class="question">
+                        <label for="q1">1. I found it hard to wind down.</label>
+                        <select id="q1" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q2">2. I was aware of the dryness of my mouth.</label>
+                        <select id="q2" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q3">3. I couldn't seem to experience any positive feelings at all.</label>
+                        <select id="q3" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q4">4. I experienced breathing difficulty (e.g., excessively rapid breathing, breathlessness without physical exertion).</label>
+                        <select id="q4" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q5">5. I found it difficult to work up the initiative to do things.</label>
+                        <select id="q5" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q6">6. I tended to over-react to situations.</label>
+                        <select id="q6" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q7">7. I experienced trembling (e.g., in the hands).</label>
+                        <select id="q7" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q8">8. I felt that I was using a lot of nervous energy.</label>
+                        <select id="q8" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q9">9. I was worried about situations where I might panic and make a fool of myself.</label>
+                        <select id="q9" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q10">10. I felt that I had nothing to look forward to.</label>
+                        <select id="q10" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q11">11. I found myself getting agitated.</label>
+                        <select id="q11" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q12">12. I found it difficult to relax.</label>
+                        <select id="q12" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q13">13. I felt downhearted and blue.</label>
+                        <select id="q13" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q14">14. I was intolerant of anything that kept me from getting on with what I was doing.</label>
+                        <select id="q14" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q15">15. I felt I was close to panic.</label>
+                        <select id="q15" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q16">16. I was unable to become enthusiastic about anything.</label>
+                        <select id="q16" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q17">17. I felt I wasn't worth much as a person.</label>
+                        <select id="q17" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q18">18. I felt that I was rather touchy.</label>
+                        <select id="q18" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q19">19. I was aware of the action of my heart in the absence of physical exertion (e.g., sense of heart rate increase, heart missing a beat).</label>
+                        <select id="q19" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q20">20. I felt scared without any good reason.</label>
+                        <select id="q20" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q21">21. I felt that life was meaningless.</label>
+                        <select id="q21" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submitQuiz">Submit Quiz</button>
+                </form>
+
+                <div id="result">
+                    <h3>Your Assessment Results:</h3>
+                    <p id="restlessnessScore">Restlessness: </p>
+                    <p id="hopelessnessScore">Hopelessness: </p>
+                    <p id="fatigueScore">Fatigue: </p>
+
+                    <div class="score-description" id="scoreDescription"></div>
+                </div>
+
+                <div class="note">
+                    <p>This assessment is for self-test purposes only and conveys no professional explanation. Please consult a medical professional if needed.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- FAQ Section -->
         <div class="section" id="faq">
             <h2>Frequently Asked Questions</h2>
             <div class="content-grid">
                 <div class="column">
                     <h3>What is Resilience?</h3>
-                    <p>Resilience is a platform dedicated to providing personalised mental health assessments to help you better understand and manage your mental health.</p>
+                    <p>Resilience is a platform that provides personalized mental health assessments to help you better understand and manage your mental health.</p>
                 </div>
                 <div class="column">
                     <h3>How does the assessment process work?</h3>
@@ -515,7 +793,7 @@
                 </div>
                 <div class="column">
                     <h3>Is my information secure?</h3>
-                    <p>Yes, your privacy is our top priority. All your data is kept confidential and is not shared with third parties without your consent.</p>
+                    <p>Yes, your privacy is our top priority. All your data is confidential and not shared with third parties without your consent.</p>
                 </div>
             </div>
         </div>
@@ -699,6 +977,33 @@
         function scrollToTop() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
+        }
+
+        document.getElementById("mentalHealthQuiz").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var restlessnessScore = calculateScore(["q1", "q6", "q8", "q11", "q14", "q17"]);
+            var hopelessnessScore = calculateScore(["q3", "q5", "q10", "q13", "q16", "q21"]);
+            var fatigueScore = calculateScore(["q2", "q4", "q7", "q9", "q12", "q15", "q18", "q19", "q20"]);
+
+            document.getElementById("restlessnessScore").textContent = "Restlessness: " + restlessnessScore;
+            document.getElementById("hopelessnessScore").textContent = "Hopelessness: " + hopelessnessScore;
+            document.getElementById("fatigueScore").textContent = "Fatigue: " + fatigueScore;
+
+            var description = generateScoreDescription(restlessnessScore, hopelessnessScore, fatigueScore);
+            document.getElementById("scoreDescription").textContent = description;
+
+            document.getElementById("result").style.display = "block";
+        });
+
+        function calculateScore(questionIds) {
+            return questionIds.reduce(function (total, questionId) {
+                return total + parseInt(document.getElementById(questionId).value, 10);
+            }, 0);
+        }
+
+        function generateScoreDescription(restlessness, hopelessness, fatigue) {
+            return "Based on your scores, you may be experiencing moderate restlessness, hopelessness, and fatigue. It's important to consider these results as an indication to take a closer look at your mental health and well-being. If you have concerns, please consult a medical professional.";
         }
     </script>
 </body>
