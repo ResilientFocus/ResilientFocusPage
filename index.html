@@ -931,17 +931,25 @@
 
             setTimeout(function () {
                 switch (profileCode) {
+                    case "PC00013":
+                    case "PC00023":
+                    case "PC00105":
+                    case "PC00185":
+                    case "PC01001":
+                    case "PC11230":
+                    case "PC11822":
                     case "PC12593":
                     case "PC14638":
+                    case "PC15220":
                     case "PC18394":
                     case "PC18472":
                     case "PC19364":
-                    case "PC00023":
-                    case "PC00105":
-                    case "PC11230":
-                    case "PC11822":
-                    case "PC00185":
                     case "PC24562":
+                    case "PC33221":
+                    case "PC34511":
+                    case "PC55500":
+                    case "PC66520":
+                    case "PC99112":
                         successMessageDiv.style.display = "block";
                         loadingDiv.style.display = "none";
                         setTimeout(function () {
@@ -959,17 +967,17 @@
 
         function getRedirectUrl(profileCode) {
             var urls = {
-                "PC12593": "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8",
-                "PC14638": "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ",
-                "PC18394": "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8",
-                "PC18472": "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ",
-                "PC19364": "https://1drv.ms/f/s!AmdizPMCQhSggilQyPnzHgAnt6dg?e=w82gS9",
-                "PC00023": "https://1drv.ms/f/s!AmdizPMCQhSggixGfopElthOsdjv?e=5hJHUy",
-                "PC00105": "https://1drv.ms/f/s!AmdizPMCQhSggi9EV0-867gzz0px?e=HtdNYe",
-                "PC00185": "https://1drv.ms/f/s!AmdizPMCQhSggjBdu22I3RHQavgR?e=Zb4ytZ",
-                "PC11230": "https://1drv.ms/f/s!AmdizPMCQhSggi5mq_ESXuXyQBOg?e=qCTAi4",
-                "PC11822": "https://1drv.ms/f/s!AmdizPMCQhSggi3PdN2vqUm9ZPb0?e=Y0ifc2",
-                "PC24562": "https://1drv.ms/f/s!AmdizPMCQhSggisgYmM7mI29D6wK?e=G3T8iF"
+                "PC00013": "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8",
+                "PC00023": "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ",
+                "PC00105": "https://1drv.ms/f/s!AmdizPMCQhSggiVJtGt4cyzT82oU?e=Q0Tns8",
+                "PC00185": "https://1drv.ms/f/s!AmdizPMCQhSggiawYVnTpo7_oO4p?e=qWa3oZ",
+                "PC01001": "https://1drv.ms/f/s!AmdizPMCQhSggilQyPnzHgAnt6dg?e=w82gS9",
+                "PC11230": "https://1drv.ms/f/s!AmdizPMCQhSggixGfopElthOsdjv?e=5hJHUy",
+                "PC11822": "https://1drv.ms/f/s!AmdizPMCQhSggi9EV0-867gzz0px?e=HtdNYe",
+                "PC12593": "https://1drv.ms/f/s!AmdizPMCQhSggjBdu22I3RHQavgR?e=Zb4ytZ",
+                "PC14638": "https://1drv.ms/f/s!AmdizPMCQhSggi5mq_ESXuXyQBOg?e=qCTAi4",
+                "PC15220": "https://1drv.ms/f/s!AmdizPMCQhSggi3PdN2vqUm9ZPb0?e=Y0ifc2",
+                "PC18394": "https://1drv.ms/f/s!AmdizPMCQhSggisgYmM7mI29D6wK?e=G3T8iF"
             };
             return urls[profileCode];
         }
